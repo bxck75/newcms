@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<translation>
+	<label_catagorie_name>Naam Event</label_catagorie_name>
+        <label_catagorie_startdatum>Startdatum</label_catagorie_startdatum>
+        <label_catagorie_einddatum>Einddatum</label_catagorie_einddatum>
+        <label_catagorie_prijs>Prijs</label_catagorie_prijs>
+        <label_catagorie_edit>Bewerk</label_catagorie_edit>
+        <label_catagorie_delete>Verwijder</label_catagorie_delete>
+        <label_catagorie_pdf>PDF</label_catagorie_pdf>
+
+</translation>
