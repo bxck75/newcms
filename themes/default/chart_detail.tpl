@@ -6,18 +6,18 @@
 	<input type="hidden" name="id" value="<?php echo (isset($_GET['id']))?$_GET['id']:''; ?>" />
 	<table class="list">
 		<tr>
-			<td><?php echo $this->label_catagorie_name; ?> : </td>
-			<td><input class="required" type="text" name="req_name" value="<?php echo stripslashes($this->catagorie['name']); ?>" /></td>
+			<td><?php echo $this->label_category_name; ?> : </td>
+			<td><input class="required" type="text" name="req_name" value="<?php echo stripslashes($this->category['name']); ?>" /></td>
 		</tr>
 
 		<tr>
-			<td><?php echo $this->label_catagorie_parent_id; ?></td>
-			<td><input class="required" type="text" name="reqnum_parent_id" value="<?php echo $this->catagorie['parent_id']; ?>" /></td>
+			<td><?php echo $this->label_category_parent_id; ?></td>
+			<td><input class="required" type="text" name="reqnum_parent_id" value="<?php echo $this->category['parent_id']; ?>" /></td>
 		</tr>
 		
 
 		<tr><td colspan="2"><input type="button" onclick="validate();" name="btnSubmit" value="Opslaan" /></td></tr>
-		<tr><td colspan="2"><input type="button" name="btnBack" value="Annuleren" onclick="document.location.href='index.php?route=catagorie/overview&token=<?php echo $_GET['token']; ?>'" /></td></tr>
+		<tr><td colspan="2"><input type="button" name="btnBack" value="Annuleren" onclick="document.location.href='index.php?route=category/overview&token=<?php echo $_GET['token']; ?>'" /></td></tr>
 	</table>
 	</form>
 </div>

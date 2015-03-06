@@ -30,7 +30,7 @@ if(isset($_GET['route']) && $_GET['route'] != ''){
 
         //echo './module/'.STANDARD_BACKEND_MODULE_FOLDER.'/'.$module.'/'.$module.'Controller.php';
 	if(!file_exists('./module/'.STANDARD_BACKEND_MODULE_FOLDER.'/'.$module.'/'.$module.'Controller.php')){
-		$module = 'event';
+		$module = 'category';
 	}
 }
 
@@ -39,7 +39,7 @@ require_once('./system/startup.php');
 
 // Get the required controller
 $controllerName = $module.'Controller';
-echo './module/'.STANDARD_BACKEND_MODULE_FOLDER.'/'.$module.'/'.$module.'Controller.php';
+//echo './module/'.STANDARD_BACKEND_MODULE_FOLDER.'/'.$module.'/'.$module.'Controller.php';
 require_once('./module/'.STANDARD_BACKEND_MODULE_FOLDER.'/'.$module.'/'.$module.'Controller.php');
 $obj = new $controllerName();
 

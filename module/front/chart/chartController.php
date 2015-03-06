@@ -24,9 +24,9 @@ class chartController extends Controller {
                 
 		$this->loadModel('chart');
 		
-		$catagories = $this->model->getChartData();
+		$categorys = $this->model->getChartData();
  
-                $this->catagories = $catagories;
+                $this->categorys = $categorys;
 		
                 $this->render('chart_overview.tpl');
 	}

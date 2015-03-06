@@ -7,11 +7,11 @@
 		</ul>
 		
 		<ul class="drop_menu">
-			<?php if($this->IsAuthorized($_GET['token'],'catagorie', 'view')){?>
-    		<li><a href="index.php?route=catagorie/overview&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_catagories; ?></a>
+			<?php if($this->IsAuthorized($_GET['token'],'category', 'view')){?>
+    		<li><a href="index.php?route=category/overview&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_categorys; ?></a>
 			    <ul>
-    				<?php if($this->IsAuthorized($_GET['token'],'catagorie', 'add')){?>
-    				<li><a href="index.php?route=catagorie/add&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_add_catagorie; ?></a></li>
+    				<?php if($this->IsAuthorized($_GET['token'],'category', 'add')){?>
+    				<li><a href="index.php?route=category/add&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_add_category; ?></a></li>
     				<?php } ?>
 			    </ul>
 			</li>

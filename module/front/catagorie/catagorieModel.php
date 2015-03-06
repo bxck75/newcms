@@ -1,21 +1,21 @@
 <?php
-class catagorieModel extends Model{
-	public function getCatagories(){
-		$sql = "SELECT * FROM Catagories";		
+class categoryModel extends Model{
+	public function getcategorys(){
+		$sql = "SELECT * FROM categorys";		
 		$result = $this->db->query($sql);
 		return $result->rows;
 	}
 	
-	public function deleteCatagorie($id){
-		$sql = "DELETE FROM Catagories WHERE categorie_id = '".$this->db->escape($id)."'";		
+	public function deletecategory($id){
+		$sql = "DELETE FROM categorys WHERE categorie_id = '".$this->db->escape($id)."'";		
 		$this->db->query($sql);
 		
 		return;
 	}
 	
-	public function addCatagorie($data){
+	public function addcategory($data){
             //var_dump($data);
-		$sql  = "INSERT INTO Catagories SET ";
+		$sql  = "INSERT INTO categorys SET ";
 		$sql .= "catagory_name = '".$this->db->escape($data['req_name'])."', ";
 		$sql .= "parent_catagory_id = '".$data['req_parent_id']."', ";
 
@@ -27,11 +27,11 @@ class catagorieModel extends Model{
 		return;
 	}
 	
-	public function editCatagorie($data){
-		if($this->validateCatagorie($data)){
-			//handle core catagorie data
+	public function editcategory($data){
+		if($this->validatecategory($data)){
+			//handle core category data
                         //var_dump($data);
-			$sql  = "UPDATE Catagories SET ";
+			$sql  = "UPDATE categorys SET ";
 			$sql .= "catagory_name = '".$this->db->escape($data['req_name'])."', ";
 		$sql .= "parent_catagory_id = '".$data['req_parent_id']."', ";
 			
@@ -45,8 +45,8 @@ class catagorieModel extends Model{
 		return;
 	}
 	
-	public function getCatagorie($id){
-		$sql = "SELECT * FROM Catagories WHERE id = '".$id."'";
+	public function getcategory($id){
+		$sql = "SELECT * FROM categorys WHERE id = '".$id."'";
 		
 		$result = $this->db->query($sql);
 		
@@ -55,7 +55,7 @@ class catagorieModel extends Model{
 
 	
 
-	private function validateCatagorie($data){
+	private function validatecategory($data){
 		foreach($data as $k => $v){
 			if(substr($k, 0, 3) == 'req'){
 				if($v == ''){
@@ -76,8 +76,8 @@ class catagorieModel extends Model{
 	
 
 
-	public function catagoriePdf($id){
-		$sql = "SELECT * Catagories as ev ";
+	public function categoryPdf($id){
+		$sql = "SELECT * categorys as ev ";
 				
 		
 		$sql.= "WHERE id = '".$id."' ";

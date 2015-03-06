@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<translation>
+	
+        
+        <label_category_name>Name category</label_category_name>
+        <label_category_id>ID</label_category_id>
+        <label_category_einddatum>Enddate</label_category_einddatum>
+        <label_category_prijs>Price</label_category_prijs>
+        <label_category_edit>Edit</label_category_edit>
+         <label_category_addlocation>Add location</label_category_addlocation>
+        <label_category_select_addlocation>-- Select location --</label_category_select_addlocation>
+        <label_category_addresource>Add resource</label_category_addresource>
+        <label_category_select_addresource>-- Select resource --</label_category_select_addresource>	
+        <label_category_delete>Delete</label_category_delete>	
+        <label_category_pdf>PDF</label_category_pdf>
+        <label_category_discription>Category discription</label_category_discription>
+        
+
+
+
+</translation>

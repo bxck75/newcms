@@ -9,13 +9,13 @@
 /**
  * Description of chartcontroller
  *
- * @author factif
+ * @author boudewijn kooy
  */
 class chartController extends Controller {
     
     function __construct() {
         parent::__construct();
-        		$this->authorize();
+        	$this->authorize();
                 $this->loadMenu();
     }
     public function overview(){
@@ -24,9 +24,7 @@ class chartController extends Controller {
                 
 		$this->loadModel('chart');
 		
-		$catagories = $this->model->getChartData();
- 
-                $this->catagories = $catagories;
+		$this->ChartDataFeed = $this->model->getChartData();
 		
                 $this->render('chart_overview.tpl');
 	}

@@ -10,32 +10,36 @@ class categoryController extends Controller{
 		
 		$this->label_category = $this->language->get('label_category_overview');		
 		$this->label_category_name = $this->language->get('label_category_name');		
-		$this->label_category_startdatum = $this->language->get('label_category_startdatum');		
+		$this->label_category_id = $this->language->get('label_category_id');		
 		$this->label_category_einddatum = $this->language->get('label_category_einddatum');		
 		$this->label_category_parent_id = $this->language->get('label_category_parent_id');		
 		$this->label_category_edit = $this->language->get('label_category_edit');		
 		$this->label_category_delete = $this->language->get('label_category_delete');		
 		$this->label_category_pdf = $this->language->get('label_category_pdf');		
+		$this->label_category_child = $this->language->get('label_category_child');		
 
                 
-                $this->addScript('//code.jquery.com/jquery-1.11.2.min.js');
-                $this->addScript('//code.jquery.com/ui/1.11.2/jquery-ui.js');
-                $this->addStyle('//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css');
+                            
+            
+                            
+                $this->addScript('//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js');
+                
+                $this->addScript('//ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js');
+                
+                //$this->addScript('//code.jquery.com/ui/1.11.2/jquery-ui.js');
+                
+                $this->addStyle('//ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css');
 	}
 
 	public function overview(){
 
 		$this->setTitle('Overzicht categorys');
                 
-		
-                
-
-                
-		$this->loadModel('category');
+                $this->loadModel('category');
 		
 		$categorys = $this->model->getcategorys();
-                 //echo "<pre>";var_dump($categorys);echo "</pre>"; 
-
+                //echo "<pre>";var_dump($categorys);echo "</pre>"; 
+                
 	
 
 		$this->categorys = $categorys;
@@ -44,10 +48,12 @@ class categoryController extends Controller{
 	        
 		
 
-		$this->render('category_overview.tpl');
+		$this->render('categorie_overview.tpl');
 	}
 
 	public function add(){
+
+                
 		$this->setTitle('category toevoegen');
 
 		if($_POST){
@@ -74,6 +80,8 @@ class categoryController extends Controller{
 	}
 
 	public function edit(){
+
+                
 		$this->setTitle('category aanpassen');
 
 		$this->loadModel('category');
@@ -93,9 +101,10 @@ class categoryController extends Controller{
 			
 			$this->category = $this->model->getcategory($id);
 			
-                       
+                        $this->category_childs = $this->model->getCategorieChilds($id);
 			
-			$this->render('category_detail.tpl');		
+                        $this->catagorys = $this->model->getcategorys();
+			$this->render('categorie_detail.tpl');		
 		}
 	}
 
@@ -138,7 +147,7 @@ class categoryController extends Controller{
 			
 			$html2pdf = new HTML2PDF('P','A4','nl');
   	 		$html2pdf->WriteHTML($content);
-			$html2pdf->Output('category'.$id.'.pdf');
+			$html2pdf->Output('categorie'.$id.'.pdf');
 		}
 	}
 	

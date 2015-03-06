@@ -162,6 +162,8 @@ ul.menu li{
     width:10px;
         
 }
+#resizable { width: 250px; height: 50px; padding: 0.5em; }
+#resizable h3 { text-align: center; margin: 0; }
 
 /*============= Eind module styles  ===============*/
 

@@ -179,7 +179,7 @@ class Controller{
 	    //echo $this->user['language'];die;
     	$this->language->load('menu', $this->user['language']);
     	
-    	$this->menu_catagories = $this->language->get('menu_catagories');		
+    	$this->menu_categorys = $this->language->get('menu_categorys');		
     	$this->menu_artists = $this->language->get('menu_artists');		
     	$this->menu_locations = $this->language->get('menu_locations');		
     	$this->menu_resources = $this->language->get('menu_resources');		

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <translation>
-	<menu_catagories>Catagorieen</menu_catagories>
-	<menu_add_catagorie>Catagorie toevoegen</menu_add_catagorie>
+	<menu_categorys>categoryen</menu_categorys>
+	<menu_add_category>category toevoegen</menu_add_category>
 	<menu_artists>Artiesten</menu_artists>
 	<menu_add_artist>Artiest toevoegen</menu_add_artist>
 	<menu_locations>Locaties</menu_locations>
