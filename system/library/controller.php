@@ -30,14 +30,15 @@ class Controller{
 	}
 	
 	public function loadModel($module){
-		if(file_exists('./module/'.strtolower($module).'/'.strtolower($module).'Model.php')){
-			require_once('./module/'.strtolower($module).'/'.strtolower($module).'Model.php');
+		if(file_exists('./module/'.STANDARD_BACKEND_MODULE_FOLDER.'/'.strtolower($module).'/'.strtolower($module).'Model.php')){
+                    
+			require_once('./module/'.STANDARD_BACKEND_MODULE_FOLDER.'/'.strtolower($module).'/'.strtolower($module).'Model.php');
 			
 			$modelName = strtolower($module).'Model';
 			
 			$this->model = new $modelName();
 		}else{
-			echo 'Kan model ./module/'.strtolower($module).'/'.strtolower($module).'Model.php niet vinden';
+			echo 'Kan model ./module/'.STANDARD_BACKEND_MODULE_FOLDER.'/'.strtolower($module).'/'.strtolower($module).'Model.php niet vinden';
 		}
 	}
 	
@@ -178,7 +179,7 @@ class Controller{
 	    //echo $this->user['language'];die;
     	$this->language->load('menu', $this->user['language']);
     	
-    	$this->menu_events = $this->language->get('menu_events');		
+    	$this->menu_catagories = $this->language->get('menu_catagories');		
     	$this->menu_artists = $this->language->get('menu_artists');		
     	$this->menu_locations = $this->language->get('menu_locations');		
     	$this->menu_resources = $this->language->get('menu_resources');		

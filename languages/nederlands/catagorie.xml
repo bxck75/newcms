@@ -3,7 +3,7 @@
 	
 
         <label_catagorie_name>Naam Catagorie</label_catagorie_name>
-        <label_catagorie_startdatum>Startdatum</label_catagorie_startdatum>
+        <label_catagorie_id>IDhaloooooooo</label_catagorie_id>
         <label_catagorie_einddatum>Einddatum</label_catagorie_einddatum>
         <label_catagorie_parent_id>Parent catagorie id</label_catagorie_parent_id>
         <label_catagorie_edit>Bewerk</label_catagorie_edit>
@@ -13,6 +13,7 @@
         <label_catagorie_select_addresource>-- Selecteer een resource --</label_catagorie_select_addresource>
         <label_catagorie_delete>Verwijder</label_catagorie_delete>
         <label_catagorie_pdf>PDF</label_catagorie_pdf>
+        <label_category_child>Kinderen</label_category_child>
 	
         
         

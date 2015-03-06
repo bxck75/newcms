@@ -3,7 +3,7 @@
 	
         
         <label_catagorie_name>Name Catagorie</label_catagorie_name>
-        <label_catagorie_startdatum>Startdate</label_catagorie_startdatum>
+        <label_catagorie_id>ID</label_catagorie_id>
         <label_catagorie_einddatum>Enddate</label_catagorie_einddatum>
         <label_catagorie_prijs>Price</label_catagorie_prijs>
         <label_catagorie_edit>Edit</label_catagorie_edit>

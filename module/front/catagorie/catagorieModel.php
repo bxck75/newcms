@@ -7,7 +7,7 @@ class catagorieModel extends Model{
 	}
 	
 	public function deleteCatagorie($id){
-		$sql = "DELETE FROM Catagories WHERE id = '".$this->db->escape($id)."'";		
+		$sql = "DELETE FROM Catagories WHERE categorie_id = '".$this->db->escape($id)."'";		
 		$this->db->query($sql);
 		
 		return;

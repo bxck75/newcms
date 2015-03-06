@@ -27,8 +27,9 @@ if(isset($_GET['route']) && $_GET['route'] != ''){
 	}
 
 	//controleren of het bestand bestaat en indien wel, includen
-	//anders kunnen we de class niet gebruiken
-	if(!file_exists('./module/'.$module.'/'.$module.'Controller.php')){
+
+        //echo './module/'.STANDARD_BACKEND_MODULE_FOLDER.'/'.$module.'/'.$module.'Controller.php';
+	if(!file_exists('./module/'.STANDARD_BACKEND_MODULE_FOLDER.'/'.$module.'/'.$module.'Controller.php')){
 		$module = 'event';
 	}
 }
@@ -38,7 +39,8 @@ require_once('./system/startup.php');
 
 // Get the required controller
 $controllerName = $module.'Controller';
-require_once('./module/'.$module.'/'.$module.'Controller.php');
+echo './module/'.STANDARD_BACKEND_MODULE_FOLDER.'/'.$module.'/'.$module.'Controller.php';
+require_once('./module/'.STANDARD_BACKEND_MODULE_FOLDER.'/'.$module.'/'.$module.'Controller.php');
 $obj = new $controllerName();
 
 // Check if action's method exists or default back to index
