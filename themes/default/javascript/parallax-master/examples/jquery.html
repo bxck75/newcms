@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Parallax.js | jQuery Example</title>
+
+	<!-- Behavioral Meta Data -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="./themes/default/javascript/parallax-master/examples/styles/styles.css"/>
+
+</head>
+<body>
+
+	<div id="container" class="container">
+		<ul id="scene" class="scene">
+			<li class="layer" data-depth="1.00"><img src="./themes/default/javascript/parallax-master/examples/images/layer1.png"></li>
+			<li class="layer" data-depth="0.80"><img src="./themes/default/javascript/parallax-master/examples/images/layer2.png"></li>
+			<li class="layer" data-depth="0.60"><img src="./themes/default/javascript/parallax-master/examples/images/layer3.png"></li>
+			<li class="layer" data-depth="0.40"><img src="./themes/default/javascript/parallax-master/examples/images/layer4.png"></li>
+			<li class="layer" data-depth="0.20"><img src="./themes/default/javascript/parallax-master/examples/images/layer5.png"></li>
+			<li class="layer" data-depth="0.00"><img src="./themes/default/javascript/parallax-master/examples/images/layer6.png"></li>
+		</ul>
+	</div>
+
+	<!-- Scripts 
+	<script src="./themes/default/javascript/parallax-master/examples/scripts/jquery.js"></script> -->
+	<script src="./themes/default/javascript/parallax-master/deploy/jquery.parallax.js"></script>
+	<script>
+
+	// Yep, that's it!
+	$('#scene').parallax();
+
+	</script>
+
+</body>
+</html>

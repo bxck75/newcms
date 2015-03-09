@@ -144,11 +144,12 @@ class userModel extends Model{
         return;
     }
     
-    public function setGroupRights($data){        
+    public function setGroupRights($data){
+        
         $sql  = "INSERT INTO group_rights ";
         $sql .= "(group_id, module, edit, view) ";
         $sql .= "VALUES ".$data;
-        //echo $sql;
+        //echo $sql;die();
         $this->db->query($sql);
         return;
     }
@@ -164,9 +165,13 @@ class userModel extends Model{
     }
     
     public function addGroupModule($groupid, $module, $edit, $view){
+        echo $groupid;
+        echo $module;
+        echo $edit;
+        echo $view;
         $sql  = "INSERT INTO group_rights ";
         $sql .= "(group_id, module, edit, view) ";
-        $sql .= "VALUES (".$this->db->escape($groupid).", '".$this->db->escape($module)."', $edit, $view)";
+        $sql .= "VALUES (".$groupid.", '".$module."', $edit, $view)";
         //echo $sql;die;
         $this->db->query($sql);
         return;

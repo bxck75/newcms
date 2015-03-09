@@ -75,8 +75,7 @@ class categoryModel extends Model{
 	
 	
 
-
-	public function categoryPdf($id){
+        public function categoryPdf($id){
 		$sql = "SELECT * categorys as ev ";
 				
 		

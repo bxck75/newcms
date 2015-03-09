@@ -106,7 +106,7 @@ class userController extends Controller{
             //die;
             }
         }
-        //Als er op "opslaan" is geklikt: creëer een rij getallen met groupid, module, edit en view ; 
+        //Als er op "opslaan" is geklikt: creï¿½er een rij getallen met groupid, module, edit en view ; 
         //voorbeeld (1, "location", 1, 0)   --voor insert in de database
         $rights="";
         if(isset($_POST['opslaan'])){
@@ -141,13 +141,14 @@ class userController extends Controller{
         $this->loadModel('user');
         $this->addScript('./themes/default/javascript/jquery/jquery-1.7.1.min.js');
         $this->grouprights = $this->model->getUserGroupsRights();
-        $this->dirs = $this->getDirs("./module");
+        //echo "./module/".STANDARD_BACKEND_MODULE_FOLDER."/";
+        $this->dirs = $this->getDirs("./module/".STANDARD_BACKEND_MODULE_FOLDER."/");
         $this->groups = $this->model->getUserGroups();
         $this->render('group_overview.tpl');
     }
 
     public function delgroup(){
-        //echo "delgroup met id ".$_GET['id'];
+        echo "delgroup met id ".$_GET['id'];
         $this->loadModel('user');
         $this->model->deleteGroup($_GET['id']);
         $this->group();

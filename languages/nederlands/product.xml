@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<translation>
+	
+
+        <label_product_name>Naam product</label_product_name>
+        <label_product_id>ID</label_product_id>
+        <label_product_einddatum>Einddatum</label_product_einddatum>
+        <label_product_parent_id>Parent product id</label_product_parent_id>
+        <label_product_edit>Bewerk</label_product_edit>
+        <label_product_addlocation>Voeg locatie toe</label_product_addlocation>
+        <label_product_select_addlocation>-- Selecteer een locatie --</label_product_select_addlocation>
+        <label_product_addresource>Voeg resource toe</label_product_addresource>
+        <label_product_select_addresource>-- Selecteer een resource --</label_product_select_addresource>
+        <label_product_delete>Verwijder</label_product_delete>
+        <label_product_pdf>PDF</label_product_pdf>
+        <label_product_child>Kinderen</label_product_child>
+	<label_product_text>Product Omschrijving</label_product_text>
+	<label_product_parent_choose>Kies de Ouder Product</label_product_parent_choose>
+	<menu_tree_maker>Tree maker</menu_tree_maker>
+	<menu_tree_maker>Tree viewer</menu_tree_maker>
+	<menu_tree_maker>Product toevoegen</menu_tree_maker>
+	
+        
+        
+
+
+</translation>

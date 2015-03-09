@@ -7,6 +7,7 @@ class Controller{
 	public $scripts = array();
 	public $styles = array();
 	public $language = '';
+	public $catalogus = '';
 
 	public function __construct(){
 		$this->language = new language;
@@ -44,6 +45,8 @@ class Controller{
 	
 	public function render($viewfile){
 		$this->loadFile('head.tpl');
+                //om data voor het menu te krijgen uit het model
+                $this->HaalCatalogus();
 		$this->loadFile('header.tpl');
 		$this->loadFile($viewfile);
 		$this->loadFile('footer.tpl');
@@ -74,7 +77,7 @@ class Controller{
     		        $this->error_msg = "U bent niet geautoriseerd voor deze pagina!!<br />";
     		        $this->error_msg .= "Maak een geldige keuze uit het menu.";
     		        $this->loadMenu();
-    		        $this->render("error_page.tpl");
+                        $this->render("error_page.tpl");
     		        die;
     			}
 			}else{
@@ -179,23 +182,55 @@ class Controller{
 	    //echo $this->user['language'];die;
     	$this->language->load('menu', $this->user['language']);
     	
-    	$this->menu_categorys = $this->language->get('menu_categorys');		
-    	$this->menu_artists = $this->language->get('menu_artists');		
-    	$this->menu_locations = $this->language->get('menu_locations');		
-    	$this->menu_resources = $this->language->get('menu_resources');		
-    	$this->menu_performances = $this->language->get('menu_performances');		
+    	$this->menu_tree_view = $this->language->get('menu_tree_view');		
+    	$this->menu_tree_maker = $this->language->get('menu_tree_maker');		
+    	$this->menu_add_category = $this->language->get('menu_add_category');		
+    	$this->menu_view_category = $this->language->get('menu_view_category');		
+    	$this->menu_categorys = $this->language->get('menu_categorys');				
     	$this->menu_usermanagement = $this->language->get('menu_usermanagement');		
     	$this->menu_manage_users = $this->language->get('menu_manage_users');		
     	$this->menu_manage_groups = $this->language->get('menu_manage_groups');		
     	$this->menu_add_user = $this->language->get('menu_add_user');		
     	$this->menu_logout = $this->language->get('menu_logout');		
     	$this->text_userlogin = $this->language->get('text_userlogin');	
-    	$this->menu_add_event=$this->language->get('menu_add_event');	
-    	$this->menu_add_location=$this->language->get('menu_add_location');	
-    	$this->menu_add_artist=$this->language->get('menu_add_artist');	
-    	$this->menu_add_resource=$this->language->get('menu_add_resource');	
-    	$this->menu_add_performance=$this->language->get('menu_add_performance');	
-    	
+    	$this->menu_fancy = $this->language->get('menu_fancy');	
+    	$this->menu_fancy_html5 = $this->language->get('menu_fancy_html5');	
+    	$this->menu_fancy_vectorjs = $this->language->get('menu_fancy_vectorjs');	
+    	$this->menu_catalog = $this->language->get('menu_catalog');	
+    	 
 	}
+        
+
+            
+        
+        public function HaalCatalogus(){
+            
+            $this->loadModel('category');
+            
+            $this->catalogus = $this->model->getcategorys();
+            
+                $categoryArr = Array();
+                
+                foreach($this->catalogus as $categoryRow){
+                    //echo $categoryRow['parent_id'];
+                    $this->children[$categoryRow['parent_id']] = $this->model->getChildwithParent($categoryRow['parent_id']);
+                    foreach( $this->children[$categoryRow['parent_id']] as $categorychildRow){
+               
+                        $this->children[$categoryRow['parent_id'][$categorychildRow['parent_id']]] = $this->model->getChildwithParent($categorychildRow['parent_id']);
+                    
+                    }
+                }
+
+                return $this->children;
+                
+        }
+        public function HaalProducten(){
+            
+            $this->loadModel('products');
+            
+            $this->products = $this->model->getproducts();
+            
+        }
+
 }	
 	

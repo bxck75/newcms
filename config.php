@@ -5,6 +5,8 @@ define('DEFAULT_FRONT', 'front');
 define('DEFAULT_BACK', 'category/overview');
 define('STANDARD_BACKEND_MODULE_FOLDER','admin');
 define('STANDARD_FRONTEND_MODULE_FOLDER','front');
+define('STANDARD_FRONTEND_MODULE_FOLDER','front');
+define('STANDARD_FRONTEND_MODULE_FOLDER','front');
 
 define('DB_HOST', 'localhost');
 define('DB_DB', 'kooy_newcms');	

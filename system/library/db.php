@@ -1,5 +1,5 @@
 <?php
-class Db {
+class DB {
 	private $mysqli_handler;
 	private $hostname = DB_HOST;
 	private $username = DB_USER;

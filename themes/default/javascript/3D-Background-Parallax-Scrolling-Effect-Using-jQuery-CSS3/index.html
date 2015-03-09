@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>3D Background Parallax Scrolling Effect Demo</title>
+<link href="reset.css" rel="stylesheet" type="text/css">
+<script src="prefixfree.min.js"></script>
+<style class="cp-pen-styles">
+body {
+  height: 200vh;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12vw;
+  color: white;
+  font-weight: 800;
+  text-align: center;
+  font-smooth: always;
+  overflow-x:hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#demo {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+}
+#demo .demo-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(demo.jpg) center;
+  background-size: cover;
+}
+#demo .title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: table;
+}
+#demo .title h1 {
+  display: table-cell;
+  vertical-align: middle;
+}
+</style>
+</head>
+
+<body>
+<header id='demo'>
+  <div class='demo-bg'></div>
+  <div class='title'>
+    <h1>PARALLAX</h1>
+  </div>
+</header>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(window).scroll(function(){
+  var x = $(this).scrollTop(),
+      transY = (x * 0.5), scale = 1 + (x * 0.0003),
+      transform = 'translateY('+transY+'px) scale('+scale+') translate3d(0,0,0)';
+  $('#demo .demo-bg').css({
+    opacity: 1 - (x * 0.0008),
+    WebkitTransform: transform,
+    MozTransform: transform,
+    msTransform: transform,
+    transform: transform
+  });
+});
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<translation>
+	
+
+        <label_category_name>Naam category</label_category_name>
+        <label_category_id>ID</label_category_id>
+        <label_category_einddatum>Einddatum</label_category_einddatum>
+        <label_category_parent_id>Parent category id</label_category_parent_id>
+        <label_category_edit>Bewerk</label_category_edit>
+        <label_category_addlocation>Voeg locatie toe</label_category_addlocation>
+        <label_category_select_addlocation>-- Selecteer een locatie --</label_category_select_addlocation>
+        <label_category_addresource>Voeg resource toe</label_category_addresource>
+        <label_category_select_addresource>-- Selecteer een resource --</label_category_select_addresource>
+        <label_category_delete>Verwijder</label_category_delete>
+        <label_category_pdf>PDF</label_category_pdf>
+        <label_category_child>Kinderen</label_category_child>
+	<label_category_text>Categorie Omschrijving</label_category_text>
+	<label_category_parent_choose>Kies de Ouder Category</label_category_parent_choose>
+	<menu_tree_maker>Tree maker</menu_tree_maker>
+	<menu_tree_maker>Tree viewer</menu_tree_maker>
+	<menu_tree_maker>Category toevoegen</menu_tree_maker>
+	
+        
+        
+
+
+</translation>
