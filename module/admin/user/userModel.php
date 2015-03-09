@@ -6,7 +6,7 @@ class userModel extends Model{
         $sql .= "(email, password, date_last_logged_in, token, language) ";
         $sql .= "VALUES ('".$this->db->escape($data['req_email'])."', ";
         $sql .= "MD5('".$this->db->escape($data['req_password']).":12345abc'), ";
-        $sql .= "'00-00-00', ".MD5(uniqid()).", '".$this->db->escape($data['language'])."')";
+        $sql .= "'00-00-00', '".MD5(uniqid())."', '".$this->db->escape($data['language'])."')";
         //echo $sql; die;
         $this->db->query($sql);
         

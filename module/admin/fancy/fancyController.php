@@ -22,9 +22,14 @@ class fancyController extends Controller{
          
     }
     public function vectorjs(){
-
+        $this->loadModel("fancy");
+        $this->jsonNodestring = $this->model->getcatalogJson();
+        $this->jsonLinkstring = $this->model->getcatalogJson(true);
         $this->render('fancy_vectorjs.tpl');
     }
+    
+    
+    
 }
 
 ?>

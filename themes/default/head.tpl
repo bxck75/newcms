@@ -82,6 +82,18 @@ span.external span.fancytree-title:after {
 	border: none;
 }
 </style>
+<style>
+
+.link {
+  stroke: #ccc;
+}
+
+.node text {
+  pointer-events: none;
+  font: 10px sans-serif;
+}
+
+</style>
 <!--
 <script type="text/javascript">
   $.ui.fancytree.debugLevel = 1; // silence debug output
@@ -294,9 +306,9 @@ $(function(){
                                         orgEvent = data.originalEvent || {};
 
                                 if(node.data.href){
-                                        //window.open(node.data.href, (orgEvent.ctrlKey || orgEvent.metaKey) ? "_parent" : node.data.target);
+                                        window.open(node.data.href, (orgEvent.ctrlKey || orgEvent.metaKey) ? "_parent" : node.data.target);
                                         // or open target in iframe
-                                        $("[name=contentFrame]").attr("src", node.data.href);
+                                        //$("[name=contentFrame]").attr("src", node.data.href);
                                 }
                                 if( window.parent &&  parent.history && parent.history.pushState ) {
                                         // Add #HREF to URL without actually loading content

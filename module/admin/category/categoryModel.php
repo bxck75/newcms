@@ -28,14 +28,15 @@ class categoryModel extends Model{
             $parent_category = $data['req_parent_category'];
             $sql  = "INSERT INTO Category SET ";
             $sql .= "category_name = '".$this->db->escape($data['req_name'])."', ";
-            $sql .= "category_text = '".$data['req_text']."' ";
+            $sql .= "category_text = '".$data['req_text']."', ";
+            $sql .= "parent_id = '".$parent_category."' ;";
             $this->db->query($sql);
-            unset($sql);
-            $data['id_Cat'] = $this->db->getLastId();
-            $sql  = "INSERT INTO Category_tree SET ";
-            $sql .= "category_id = '".$data['id_Cat']."',";
-            $sql .= "parent_category_id = '".$parent_category."' ;";
-            $this->db->query($sql);
+//            unset($sql);
+//            $data['id_Cat'] = $this->db->getLastId();
+//            $sql  = "INSERT INTO Category_tree SET ";
+//            $sql .= "category_id = '".$data['id_Cat']."',";
+//            $sql .= "parent_category_id = '".$parent_category."' ;";
+//            $this->db->query($sql);
             $data['id_Tree'] = $this->db->getLastId();
 
 
