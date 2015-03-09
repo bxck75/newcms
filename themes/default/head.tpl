@@ -294,9 +294,9 @@ $(function(){
                                         orgEvent = data.originalEvent || {};
 
                                 if(node.data.href){
-                                        window.open(node.data.href, (orgEvent.ctrlKey || orgEvent.metaKey) ? "_parent" : node.data.target);
+                                        //window.open(node.data.href, (orgEvent.ctrlKey || orgEvent.metaKey) ? "_parent" : node.data.target);
                                         // or open target in iframe
-                                        //$("[name=contentFrame]").attr("src", node.data.href);
+                                        $("[name=contentFrame]").attr("src", node.data.href);
                                 }
                                 if( window.parent &&  parent.history && parent.history.pushState ) {
                                         // Add #HREF to URL without actually loading content
@@ -365,7 +365,7 @@ $(function(){
     });
   </script>-->
 
-                                
+            
 <script>
 function getopacity(elem) {
   var ori = $(elem).css('opacity');
