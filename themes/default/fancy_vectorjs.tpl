@@ -76,7 +76,7 @@ function collide(node) {
 </script>
 
 
--->
+<!--
  <?php echo '{"nodes":'.$this->jsonNodestring.',"links":'.$this->jsonLinkstring.'}'.'</br>'.'{"source":69,"target":24,"value":1},{"source":69,"target":27,"value":2}'; ?>                                                   
 <script>
 
@@ -133,7 +133,7 @@ d3.json ("./themes/default/data/graph1.json", function(error, json) {
 });
 
 </script>
-<!--
+-->
 <style>
 
 path.link {
@@ -179,12 +179,12 @@ var force = d3.layout.force()
     .nodes(d3.values(nodes))
     .links(links)
     .size([width, height])
-    .linkDistance(60)
+    .linkDistance( function(d) { return (d.value*50)})
     .charge(-300)
     .on("tick", tick)
     .start();
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#wrapper").append("svg")
     .attr("width", width)
     .attr("height", height);
 
@@ -205,8 +205,9 @@ svg.append("svg:defs").selectAll("marker")
 // add the links and the arrows
 var path = svg.append("svg:g").selectAll("path")
     .data(force.links())
-  .enter().append("svg:path")
-//    .attr("class", function(d) { return "link " + d.type; })
+    .enter()
+    .append("svg:path")
+    //.attr("class", function(d) { return "path" + d.type; })
     .attr("class", "link")
     .attr("marker-end", "url(#end)");
 
@@ -219,7 +220,7 @@ var node = svg.selectAll(".node")
 
 // add the nodes
 node.append("circle")
-    .attr("r", 5);
+    .attr("r", 3);
 
 // add the text 
 node.append("text")
@@ -240,6 +241,8 @@ function tick() {
             d.target.x + "," + 
             d.target.y;
     });
+
+
 
     node
         .attr("transform", function(d) { 

@@ -46,5 +46,65 @@ class helpfuncties {
          }
          return $pageURL;
     }
+    
+    public function array_to_csv($data,$args=false) {
+        if (!is_array($args)) { $args = array(); }
+        foreach (array('download','line_breaks','trim') as $key) {
+            if (array_key_exists($key,$args)) { $$key = $args[$key]; } else { $$key = false; }
+        }
+
+        //for this to work, no output should be sent to the screen before this function is called
+        if ($download) {
+            if ((is_string($download)) && (substr($download,-4) == '.csv')) { $filename = $download; }
+            else { $filename = 'download.csv'; }
+            header('Content-Type:text/csv');
+            header('Content-Disposition:attachment; filename='.$filename);
+        }
+
+        if ($line_breaks == 'windows') { $lb = "\r\n"; }
+        else { $lb = "\n"; }
+
+        //get rid of headers row, if it exists (headers should exist as keys)
+        if (array_key_exists('headers',$data)) { unset($data['headers']); }
+
+        $i = 0;
+        foreach ($data as $row) {
+            $i++;
+            //display headers
+            if ($i == 1) { 
+                $c = '';
+                foreach ($row as $key => $value) {
+                    $key = str_replace('"','""',$key);
+                    if ($trim) { $key = trim($key); }
+                    echo $c.'"'.$key.'"'; $c = ',';
+                }
+                //echo $lb;
+            }
+
+            //display values
+            $c = '';
+            foreach ($row as $key => $value) {
+                $value = str_replace('"','""',$value);
+                if ($trim) { $value = trim($value); }
+                echo $c.'"'.$value.'"'; $c = ',';
+            }
+            echo $lb;
+        }
+
+        if ($download) { die(); }
+    }
+    
+    public function vardrop($data,$pre = true,$die = false){
+        if($pre == true){echo '<pre>';}
+        var_dump($data);
+        if($pre == true){echo '</pre>';}
+        if($die == true){die('Killed on request!');}
+    }
+    public function schrijf($data,$pre = true,$die = false){
+        if($pre == true){echo '<pre>';}
+        echo $data;
+        if($pre == true){echo '</pre>';}
+        if($die == true){die('Killed on request!');}
+    }
 
 }
