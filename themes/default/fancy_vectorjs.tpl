@@ -1,5 +1,24 @@
 
-<script src="http://d3js.org/d3.v3.min.js"></script><!--
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<!--<script src="./themes/default/bl.ock.forcecluster.js"></script>
+<script src="./themes/default/bl.ock.csvnodes.js"></script>-->
+<script src="./themes/default/bl.ock.colforce.js"></script>
+
+<style>
+.node {
+    fill: #ccc;
+    stroke: #fff;
+    stroke-width: 2px;
+}
+
+.link {
+    stroke: #777;
+    stroke-width: 2px;
+}
+
+</style>
+
+<!--
 <script>
 
 var width = 960,
@@ -133,7 +152,7 @@ d3.json ("./themes/default/data/graph1.json", function(error, json) {
 });
 
 </script>
--->
+
 <style>
 
 path.link {
@@ -179,12 +198,12 @@ var force = d3.layout.force()
     .nodes(d3.values(nodes))
     .links(links)
     .size([width, height])
-    .linkDistance( function(d) { return (d.value*50)})
+    .linkDistance(60)
     .charge(-300)
     .on("tick", tick)
     .start();
 
-var svg = d3.select("#wrapper").append("svg")
+var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
 
@@ -205,9 +224,8 @@ svg.append("svg:defs").selectAll("marker")
 // add the links and the arrows
 var path = svg.append("svg:g").selectAll("path")
     .data(force.links())
-    .enter()
-    .append("svg:path")
-    //.attr("class", function(d) { return "path" + d.type; })
+  .enter().append("svg:path")
+//    .attr("class", function(d) { return "link " + d.type; })
     .attr("class", "link")
     .attr("marker-end", "url(#end)");
 
@@ -220,7 +238,7 @@ var node = svg.selectAll(".node")
 
 // add the nodes
 node.append("circle")
-    .attr("r", 3);
+    .attr("r", 5);
 
 // add the text 
 node.append("text")
@@ -242,8 +260,6 @@ function tick() {
             d.target.y;
     });
 
-
-
     node
         .attr("transform", function(d) { 
   	    return "translate(" + d.x + "," + d.y + ")"; });
@@ -253,5 +269,5 @@ function tick() {
 
 </script>
 
-   
+  --> 
 

@@ -1,0 +1,73 @@
+/* 
+    Document   : rt_table
+    Created on : Aug 29, 2012, 4:55:50 PM
+    Author     : mowens
+    Description:
+        Purpose of the stylesheet follows.
+*/
+.rt_table table {
+    *border-collapse: collapse; /* IE7 and lower */
+    border-spacing: 0;
+    margin: 10px;
+  
+ 
+}
+.rt_table {
+    border: solid #ccc 1px;
+    color: yellowgreen;
+    background-color: black;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 1px 1px #ccc; 
+    -moz-box-shadow: 0 1px 1px #ccc; 
+    box-shadow: 0 1px 1px #ccc;  
+    line-height: 1em;
+        width: 100%;
+          font-family: Helvetica, sans-serif;
+}
+
+.rt_table tr:hover {
+    background: #fbf8e9;
+    -o-transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;   
+          font-size: 1.1em;
+          line-height: 2.0em;
+          color:black;
+}    
+    
+.rt_table td, .rt_table th {
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 5px;
+    text-align: left;    
+    vertical-align: top;
+    text-align: center;
+       font-size: .8em;
+       
+   
+}
+
+.rt_table td:first-child, .rt_table th:first-child {
+    border-left: none;
+    text-align: left;
+}
+
+.rt_table  thead th{
+    padding:6px 10px;
+    text-transform:uppercase;
+    color:white;
+    font-weight:bold;
+    text-shadow:1px 1px 1px #fff;
+    border-bottom:5px solid #444;
+ 
+}
+
+.neutral_blue
+{
+   color:#66FFFF; 
+}
+

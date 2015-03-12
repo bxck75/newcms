@@ -28,7 +28,9 @@ source,target,value
 27b,Boudewijn,2
 28b,Boudewijn,2
 29b,Boudewijn,2
-Boudewijn,Petra,5
+root,Boudewijn,2
+root,root,5
+root,Petra,2
 1a,Petra,2
 2a,Petra,2
 3a,Petra,2
