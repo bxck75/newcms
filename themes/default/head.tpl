@@ -82,18 +82,7 @@ span.external span.fancytree-title:after {
 	border: none;
 }
 </style>
-<style>
 
-.link {
-  stroke: #ccc;
-}
-
-.node text {
-  pointer-events: none;
-  font: 10px sans-serif;
-}
-
-</style>
 <!--
 <script type="text/javascript">
   $.ui.fancytree.debugLevel = 1; // silence debug output

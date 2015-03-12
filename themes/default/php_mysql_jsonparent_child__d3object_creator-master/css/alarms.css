@@ -1,0 +1,18 @@
+/* 
+    Document   : alarms
+    Created on : Aug 31, 2012, 9:42:15 AM
+    Author     : mowens
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.alarms_red {
+    color: red;
+}
+.alarms_yellow {
+    color: yellow;
+}
+
+.alarms_turquoise {
+    color: turquoise;
+}

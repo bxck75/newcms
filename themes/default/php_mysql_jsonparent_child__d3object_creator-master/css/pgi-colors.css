@@ -1,0 +1,22 @@
+/* 
+    Document   : pgi-colors
+    Created on : May 4, 2012, 12:17:11 PM
+    Author     : mowens
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+/*Pgi Color Scheme*/
+
+.gray { color: #847465; }
+.pgi_orange { color:#ff6600;}
+.gm_orange {color:#ff9f3b;}
+.white { color:white;}
+.teal {color:#418DA5;}
+.dark_gray { color:#666;}
+.black { color:#000;}
+.lt_blue { color:#01adef;}
+

@@ -1,5 +1,26 @@
 
-<script src="http://d3js.org/d3.v3.min.js"></script><!--
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<!--<script src="./themes/default/bl.ock.forcecluster.js"></script>
+<script src="./themes/default/bl.ock.csvnodes.js"></script>
+<script src="./themes/default/bl.ock.colforce.js"></script>
+<script src="./themes/default/d3.colorbar.js"></script>-->
+<script src="./themes/default/bl.ock.constelation.js"></script>
+
+<style>
+.node {
+    fill: #ccc;
+    stroke: #fff;
+    stroke-width: 2px;
+}
+
+.link {
+    stroke: #777;
+    stroke-width: 2px;
+}
+
+</style>
+
+<!--
 <script>
 
 var width = 960,
@@ -76,7 +97,7 @@ function collide(node) {
 </script>
 
 
--->
+<!--
  <?php echo '{"nodes":'.$this->jsonNodestring.',"links":'.$this->jsonLinkstring.'}'.'</br>'.'{"source":69,"target":24,"value":1},{"source":69,"target":27,"value":2}'; ?>                                                   
 <script>
 
@@ -133,7 +154,7 @@ d3.json ("./themes/default/data/graph1.json", function(error, json) {
 });
 
 </script>
-<!--
+
 <style>
 
 path.link {
@@ -250,5 +271,5 @@ function tick() {
 
 </script>
 
-   
+  --> 
 

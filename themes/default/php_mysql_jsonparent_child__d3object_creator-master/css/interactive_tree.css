@@ -1,0 +1,23 @@
+/* 
+    Document   : interactive_tree
+    Created on : Sep 16, 2013, 9:38:11 AM
+    Author     : mowens
+    Description:
+        Purpose of the stylesheet follows.
+*/
+circle {
+  cursor: pointer;
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+text {
+	font-size:10px;
+}
+
+path.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
