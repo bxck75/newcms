@@ -8,7 +8,7 @@ require_once('./config.php');
 // Index herschreven zodat men op de homepagina komt bij geen of een ongeldige route.
 
 // Defaults
-$module = 'event';
+$module = 'category';
 $action = 'index';
 
 // If route is set, update $module and $action.

@@ -51,6 +51,15 @@ class Controller{
 		$this->loadFile($viewfile);
 		$this->loadFile('footer.tpl');
 	}
+        
+	public function Frontrender($viewfile){
+		$this->loadFile('head.tpl');
+                //om data voor het menu te krijgen uit het model
+                //$this->HaalCatalogus();
+		$this->loadFile('front_header.tpl');
+		$this->loadFile($viewfile);
+		$this->loadFile('footer.tpl');
+	}
 	
 	public function redirect($route, $token = '', $msg = ''){
 	    $str='Location: index.php?route='.$route;

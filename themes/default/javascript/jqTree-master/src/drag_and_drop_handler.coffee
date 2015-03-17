@@ -47,7 +47,113 @@ class DragAndDropHandler
         return true
 
     mouseDrag: (position_info) ->
-        @drag_element.move(position_info.page_      low = mid + 1
+        @drag_element.move(position_info.page_x, position_info.page_y)
+
+        area = @findHoveredArea(position_info.page_x, position_info.page_y)
+        can_move_to = @canMoveToArea(area)
+
+        if can_move_to and area
+            if !area.node.isFolder()
+                @stopOpenFolderTimer();
+
+            if @hovered_area != area
+                @hovered_area = area
+
+                # If this is a closed folder, start timer to open it
+                if @mustOpenFolderTimer(area)
+                    @startOpenFolderTimer(area.node)
+                else
+                    @stopOpenFolderTimer()
+
+                @updateDropHint()
+        else
+            @removeHover()
+            @removeDropHint()
+            @stopOpenFolderTimer()
+
+        return true
+
+    mustCaptureElement: ($element) ->
+        return not $element.is('input,select')
+
+    canMoveToArea: (area) ->
+        if not area
+            return false
+        else if @tree_widget.options.onCanMoveTo
+            position_name = Position.getName(area.position)
+
+            return @tree_widget.options.onCanMoveTo(@current_item.node, area.node, position_name)
+        else
+            return true
+
+    mouseStop: (position_info) ->
+        @moveItem(position_info)
+        @clear()
+        @removeHover()
+        @removeDropHint()
+        @removeHitAreas()
+
+        if @current_item
+            @current_item.$element.removeClass('jqtree-moving')
+            @current_item = null
+
+        @is_dragging = false
+        return false
+
+    refresh: ->
+        @removeHitAreas()
+
+        if @current_item
+            @generateHitAreas()
+
+            @current_item = @tree_widget._getNodeElementForNode(@current_item.node)
+
+            if @is_dragging
+                @current_item.$element.addClass('jqtree-moving')
+
+    removeHitAreas: ->
+        @hit_areas = []
+
+    clear: ->
+        @drag_element.remove()
+        @drag_element = null
+
+    removeDropHint: ->
+        if @previous_ghost
+            @previous_ghost.remove()
+
+    removeHover: ->
+        @hovered_area = null
+
+    generateHitAreas: ->
+        hit_areas_generator = new HitAreasGenerator(
+            @tree_widget.tree,
+            @current_item.node,
+            @getTreeDimensions().bottom
+        )
+        @hit_areas = hit_areas_generator.generate()
+
+    findHoveredArea: (x, y) ->
+        dimensions = @getTreeDimensions()
+
+        if (
+            x < dimensions.left or
+            y < dimensions.top or
+            x > dimensions.right or
+            y > dimensions.bottom
+        )
+            return null
+
+        low = 0
+        high = @hit_areas.length
+        while (low < high)
+            mid = (low + high) >> 1
+            area = @hit_areas[mid]
+
+            if y < area.top
+                high = mid
+            else if y > area.bottom
+                low = mid + 1
             else
                 return area
 
