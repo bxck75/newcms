@@ -68,8 +68,8 @@ class productController extends Controller{
                 
                 $this->loadModel('product');
                 
-                $this->parent_product_data = $this->model->getproducts();
-                //echo "<pre>";var_dump($this->parent_product_data);echo "</pre>";
+                $this->parent_category_data = $this->model->getparentcategory();
+                //echo "<pre>";var_dump($this->parent_category_data);echo "</pre>";
 		if($_POST){
                     
 			$this->loadModel('product');
@@ -80,16 +80,12 @@ class productController extends Controller{
 			
 			$this->overview();
 		}else{		
-			
-
 			$this->product = array(
 				'name'			=> '',
 				'text'			=> '',
-				'parent_id'	=> ''
+				'parent_category_id'	=> ''
 			);
 			
-			
-                        
 			$this->render('product_detail.tpl');		
 		}
 	}
@@ -101,10 +97,12 @@ class productController extends Controller{
 
 		$this->loadModel('product');
                                
-                $this->parent_product_data = $this->model->getproducts();
+                $this->product_data = $this->model->getproducts();
                 
+                $this->parent_category_data = $this->model->getparentcategory();
                 
-                //echo "<pre>";var_dump($this->parent_product_data);echo "</pre>";
+                echo "<pre>";var_dump($this->product_data);echo "</pre>";
+                echo "<pre>";var_dump($this->parent_category_data);echo "</pre>";
 
 		if($_POST){
 			if($this->validate($_POST)){

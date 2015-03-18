@@ -10,22 +10,16 @@
 			<td><?php echo $this->label_product_name; ?> : </td>
 			<td><input class="required" type="text" name="req_name" value="<?php echo stripslashes($this->product['product_name']); ?>" /></td>
 		</tr>
-
-		<tr>
-			<td><?php echo $this->label_product_text; ?></td>
-			<td><input class="required" type="text" name="req_text" value="<?php echo stripslashes($this->product['product_text']); ?>" /></td>
-			
-		</tr>
-		<tr>
+                <tr>
 			<td><?php echo $this->label_product_parent_choose; ?></td>
                         <td> 
-                        <select class="element select medium" id="element_1" name="req_parent_product"> 
+                        <select class="element select medium" id="element_1" name="req_parent_category"> 
                             <?php foreach($this->parent_category_data as $parent_cat) { ?>
-                                <?php if($parent_cat['product_name'] != ''){ ?>
-                                    <?php if($this->product['product_id'] != $parent_cat['product_id']) { ?>
-                                        <option value="<?php echo $parent_cat['product_id']; ?>" selected='selected' ><?php echo $parent_cat['product_name']; ?></option>
+                                <?php if($parent_cat['category_name'] != ''){ ?>
+                                    <?php if($this->parent_category_data['category_id'] != $parent_cat['category_id']) { ?>
+                                        <option value="<?php echo $parent_cat['category_id']; ?>" selected='selected' ><?php echo $parent_cat['category_name']; ?></option>
                                    <?php  }else{ ?>
-                                        <option value="<?php echo $parent_cat['product_id']; ?>" ><?php echo $parent_cat['product_name']; ?></option>        
+                                        <option value="<?php echo $parent_cat['category_id']; ?>" ><?php echo $parent_cat['category_name']; ?></option>        
 <?php                               }
                                 }
                            } 

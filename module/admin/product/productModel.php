@@ -25,16 +25,16 @@ class productModel extends Model{
 
     public function addproduct($data){
             var_dump($data);
-            $parent_product = $data['req_parent_product'];
+            
             $sql  = "INSERT INTO Product SET ";
-            $sql .= "product_name = '".$this->db->escape($data['req_name'])."', ";
-            $sql .= "product_text = '".$data['req_text']."' ";
+            $sql .= "name = '".$this->db->escape($data['req_name'])."', ";
+            $sql .= "category_id = '".$data['parent_category']."' ";
             $this->db->query($sql);
             //echo $sql;
             $data['product_id'] = $this->db->getLastId();
 
 
-            return;
+            return $data;
     }
 
     public function editproduct($data){
@@ -42,8 +42,8 @@ class productModel extends Model{
                     //handle core product data
                     $parent_product = $data['req_parent_product'];
                     $sql  = "UPDATE Product SET ";
-                    $sql .= "product_name = '".$this->db->escape($data['req_name'])."', ";
-                    $sql .= "product_text = '".$data['req_text']."' ";
+                    $sql .= "name = '".$this->db->escape($data['req_name'])."', ";
+                    $sql .= "category_id = '".$data['parent_category']."' ";
                     $sql .= "WHERE product_id = '".$data['id']."'";
                     $this->db->query($sql);
                     //echo $sql;
@@ -51,6 +51,14 @@ class productModel extends Model{
             }
 
             return;
+    }
+    
+    public function getparentcategory(){
+        $sql = "SELECT category_name,category_id FROM Category ";
+
+        $result = $this->db->query($sql);
+
+        return $result->rows;    
     }
 
     public function getTreetrunk(){
