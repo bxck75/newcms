@@ -20,7 +20,7 @@
 			<td><?php echo $this->label_product_parent_choose; ?></td>
                         <td> 
                         <select class="element select medium" id="element_1" name="req_parent_product"> 
-                            <?php foreach($this->parent_product_data as $parent_cat) { ?>
+                            <?php foreach($this->parent_category_data as $parent_cat) { ?>
                                 <?php if($parent_cat['product_name'] != ''){ ?>
                                     <?php if($this->product['product_id'] != $parent_cat['product_id']) { ?>
                                         <option value="<?php echo $parent_cat['product_id']; ?>" selected='selected' ><?php echo $parent_cat['product_name']; ?></option>

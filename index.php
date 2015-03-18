@@ -1,7 +1,12 @@
 <?php 
-//error_reporting(0);
-//set_error_handler('error_handler');
 
+if(isset($_GET['debug'])){
+    error_reporting(1);
+    //set_error_handler('error_handler');
+}else{
+    error_reporting(0);
+    //set_error_handler('error_handler');
+}
 require_once('./config.php');
 
 // AS 2015-02-07

@@ -187,25 +187,28 @@ class Controller{
 	}
 	
 	public function loadMenu(){
-	    //toewijzen vertalingen menuitems
-	    //echo $this->user['language'];die;
-    	$this->language->load('menu', $this->user['language']);
-    	
-    	$this->menu_tree_view = $this->language->get('menu_tree_view');		
-    	$this->menu_tree_maker = $this->language->get('menu_tree_maker');		
-    	$this->menu_add_category = $this->language->get('menu_add_category');		
-    	$this->menu_view_category = $this->language->get('menu_view_category');		
-    	$this->menu_categorys = $this->language->get('menu_categorys');				
-    	$this->menu_usermanagement = $this->language->get('menu_usermanagement');		
-    	$this->menu_manage_users = $this->language->get('menu_manage_users');		
-    	$this->menu_manage_groups = $this->language->get('menu_manage_groups');		
-    	$this->menu_add_user = $this->language->get('menu_add_user');		
-    	$this->menu_logout = $this->language->get('menu_logout');		
-    	$this->text_userlogin = $this->language->get('text_userlogin');	
-    	$this->menu_fancy = $this->language->get('menu_fancy');	
-    	$this->menu_fancy_html5 = $this->language->get('menu_fancy_html5');	
-    	$this->menu_fancy_vectorjs = $this->language->get('menu_fancy_vectorjs');	
-    	$this->menu_catalog = $this->language->get('menu_catalog');	
+            //toewijzen vertalingen menuitems
+            //echo $this->user['language'];die;
+            $this->language->load('menu', $this->user['language']);
+
+            $this->menu_tree_view = $this->language->get('menu_tree_view');		
+            $this->menu_tree_maker = $this->language->get('menu_tree_maker');		
+            $this->menu_add_category = $this->language->get('menu_add_category');		
+            $this->menu_view_category = $this->language->get('menu_view_category');		
+            $this->menu_categorys = $this->language->get('menu_categorys');				
+            $this->menu_usermanagement = $this->language->get('menu_usermanagement');		
+            $this->menu_manage_users = $this->language->get('menu_manage_users');		
+            $this->menu_manage_groups = $this->language->get('menu_manage_groups');		
+            $this->menu_add_user = $this->language->get('menu_add_user');		
+            $this->menu_logout = $this->language->get('menu_logout');		
+            $this->text_userlogin = $this->language->get('text_userlogin');	
+            $this->menu_fancy = $this->language->get('menu_fancy');	
+            $this->menu_fancy_html5 = $this->language->get('menu_fancy_html5');	
+            $this->menu_fancy_vectorjs = $this->language->get('menu_fancy_vectorjs');	
+            $this->menu_products = $this->language->get('menu_products');	
+            $this->menu_view_product = $this->language->get('menu_view_product');	
+            $this->menu_add_product = $this->language->get('menu_add_product');	
+	
     	 
 	}
         

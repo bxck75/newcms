@@ -30,13 +30,8 @@ class productModel extends Model{
             $sql .= "product_name = '".$this->db->escape($data['req_name'])."', ";
             $sql .= "product_text = '".$data['req_text']."' ";
             $this->db->query($sql);
-            unset($sql);
-            $data['id_Cat'] = $this->db->getLastId();
-            $sql  = "INSERT INTO Product_tree SET ";
-            $sql .= "product_id = '".$data['id_Cat']."',";
-            $sql .= "parent_product_id = '".$parent_product."' ;";
-            $this->db->query($sql);
-            $data['id_Tree'] = $this->db->getLastId();
+            //echo $sql;
+            $data['product_id'] = $this->db->getLastId();
 
 
             return;
@@ -50,22 +45,9 @@ class productModel extends Model{
                     $sql .= "product_name = '".$this->db->escape($data['req_name'])."', ";
                     $sql .= "product_text = '".$data['req_text']."' ";
                     $sql .= "WHERE product_id = '".$data['id']."'";
-                    //echo $sql;
-                    $this->db->query($sql);
-                    unset($sql);
-                    //echo "<pre>";var_dump($data);echo "</pre>";
-                    $data['id_Cat'] = $this->db->getLastId();
-                    $sql  = "UPDATE Product_tree SET ";
-                    $sql .= "parent_product_id = '".$parent_product."' ";
-                    $sql .= "WHERE product_id = '".$data['id']."' ";
-                    $sql .= "AND branch_in = '".$data['branch_in']."'; ";
                     $this->db->query($sql);
                     //echo $sql;
                     //echo "<pre>";var_dump($data);echo "</pre>";
-
-
-
-
             }
 
             return;

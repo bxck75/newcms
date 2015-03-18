@@ -22,26 +22,26 @@
 
 
             <ul class="list-unstyled">
-                <?php if($this->IsAuthorized($_GET['token'],'event', 'view')){?>
+                <?php if($this->IsAuthorized($_GET['token'],'category', 'view')){?>
     		<li class="folder"><?php echo $this->menu_categorys; ?>
 			    <ul>
-    				<?php if($this->IsAuthorized($_GET['token'],'event', 'add')){?>
+    				<?php if($this->IsAuthorized($_GET['token'],'category', 'view')){?>
     				<li><a href="index.php?route=category/overview&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_view_category; ?></a></li>
     				<?php } ?>
-    				<?php if($this->IsAuthorized($_GET['token'],'event', 'add')){?>
+    				<?php if($this->IsAuthorized($_GET['token'],'category', 'add')){?>
     				<li><a href="index.php?route=category/add&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_add_category; ?></a></li>
     				<?php } ?>
 			    </ul>
 			</li>
 			<?php } ?>
-                <?php if($this->IsAuthorized($_GET['token'],'event', 'view')){?>
-    		<li class="folder"><?php echo $this->menu_categorys; ?>
+                <?php if($this->IsAuthorized($_GET['token'],'product', 'view')){?>
+    		<li class="folder"><?php echo $this->menu_products; ?>
 			    <ul>
-    				<?php if($this->IsAuthorized($_GET['token'],'event', 'add')){?>
-    				<li><a href="index.php?route=product/overview&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_view_category; ?></a></li>
+    				<?php if($this->IsAuthorized($_GET['token'],'product', 'view')){?>
+    				<li><a href="index.php?route=product/overview&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_view_product; ?></a></li>
     				<?php } ?>
-    				<?php if($this->IsAuthorized($_GET['token'],'event', 'add')){?>
-    				<li><a href="index.php?route=product/add&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_add_category; ?></a></li>
+    				<?php if($this->IsAuthorized($_GET['token'],'product', 'add')){?>
+    				<li><a href="index.php?route=product/add&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_add_product; ?></a></li>
     				<?php } ?>
 			    </ul>
 			</li>
