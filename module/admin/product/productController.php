@@ -19,6 +19,7 @@ class productController extends Controller{
 		$this->label_product_child = $this->language->get('label_product_child');		
 		$this->label_product_text = $this->language->get('label_product_text');		
 		$this->label_product_parent_choose = $this->language->get('label_product_parent_choose');		
+		$this->label_product_category = $this->language->get('label_product_category');		
 
                 $this->addScript('//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js');
                 
@@ -97,12 +98,12 @@ class productController extends Controller{
 
 		$this->loadModel('product');
                                
-                $this->product_data = $this->model->getproducts();
+
                 
                 $this->parent_category_data = $this->model->getparentcategory();
                 
-                echo "<pre>";var_dump($this->product_data);echo "</pre>";
-                echo "<pre>";var_dump($this->parent_category_data);echo "</pre>";
+                //echo "<pre>";var_dump($this->product_data);echo "</pre>";
+                //echo "<pre>";var_dump($this->parent_category_data);echo "</pre>";
 
 		if($_POST){
 			if($this->validate($_POST)){
@@ -119,9 +120,6 @@ class productController extends Controller{
 			
 			$this->product = $this->model->getproduct($id);
 			
-                        $this->product_childs = $this->model->getChildwithParent($id);
-			
-                        $this->product_branch_id = $this->model->getbranchbyid($id);
                         
 			$this->render('product_detail.tpl');		
 		}

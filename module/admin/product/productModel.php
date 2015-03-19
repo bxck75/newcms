@@ -24,17 +24,17 @@ class productModel extends Model{
     }
 
     public function addproduct($data){
-            var_dump($data);
+            
             
             $sql  = "INSERT INTO Product SET ";
             $sql .= "name = '".$this->db->escape($data['req_name'])."', ";
             $sql .= "category_id = '".$data['parent_category']."' ";
             $this->db->query($sql);
-            //echo $sql;
-            $data['product_id'] = $this->db->getLastId();
+            echo $sql;
+            //$data['product_id'] = $this->db->getLastId();
 
 
-            return $data;
+            return;
     }
 
     public function editproduct($data){

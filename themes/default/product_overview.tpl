@@ -8,7 +8,7 @@
 			<tr>
                                 <td align="center"><?php echo $this->label_product_id; ?></td>
 				<td><?php echo $this->label_product_name; ?></td>
-				<td align="center" ><?php echo $this->label_product_discription; ?></td>
+				<td align="center" ><?php echo $this->label_product_category; ?></td>
                                 <td align="center" colspan="3"><?php echo $this->label_product_edit; ?></td>
 
 			</tr>

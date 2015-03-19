@@ -8,12 +8,12 @@
             <?php //echo"<pre>";var_dump($this->parent_product_data);echo "</pre>"; ?>
 		<tr>
 			<td><?php echo $this->label_product_name; ?> : </td>
-			<td><input class="required" type="text" name="req_name" value="<?php echo stripslashes($this->product['product_name']); ?>" /></td>
+			<td><input class="required" type="text" name="req_name" value="<?php echo stripslashes($this->product['name']); ?>" /></td>
 		</tr>
                 <tr>
 			<td><?php echo $this->label_product_parent_choose; ?></td>
                         <td> 
-                        <select class="element select medium" id="element_1" name="req_parent_category"> 
+                        <select class="element select medium" id="element_1" name="parent_category"> 
                             <?php foreach($this->parent_category_data as $parent_cat) { ?>
                                 <?php if($parent_cat['category_name'] != ''){ ?>
                                     <?php if($this->parent_category_data['category_id'] != $parent_cat['category_id']) { ?>
