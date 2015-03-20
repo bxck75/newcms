@@ -15,7 +15,7 @@
         <label_product_pdf>PDF</label_product_pdf>
         <label_product_child>Kinderen</label_product_child>
 	<label_product_text>Product Omschrijving</label_product_text>
-	<label_product_parent_choose>Kies de Ouder Product</label_product_parent_choose>
+	<label_product_parent_choose>Kies de Ouder Category</label_product_parent_choose>
 	<menu_tree_maker>Tree maker</menu_tree_maker>
 	<menu_tree_maker>Tree viewer</menu_tree_maker>
 	<menu_tree_maker>Product toevoegen</menu_tree_maker>

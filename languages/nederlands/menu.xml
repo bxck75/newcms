@@ -20,6 +20,10 @@
 	<menu_fancy>Fancy Scripts</menu_fancy>
 	<menu_fancy_html5>Html5</menu_fancy_html5>
 	<menu_fancy_vectorjs>Vectorjs</menu_fancy_vectorjs>
-	<menu_catalog>Catalogu</menu_catalog>
+	<menu_catalog>Catalog</menu_catalog>
+	<menu_products>Product management</menu_products>
+	<menu_view_product>Bekijken</menu_view_product>
+	<menu_add_product>Catalogu</menu_add_product>
+
         
 </translation>
