@@ -32,15 +32,28 @@ if(isset($_GET['route']) && $_GET['route'] != ''){
 	if(!file_exists('./module/'.STANDARD_BACKEND_MODULE_FOLDER.'/'.$module.'/'.$module.'Controller.php')){
 		$module = 'category';
 	}
+        // Startup
+        require_once('./system/startup.php');	
+
+        // Get the required controller
+        $controllerName = $module.'Controller';
+        //echo './module/'.STANDARD_BACKEND_MODULE_FOLDER.'/'.$module.'/'.$module.'Controller.php';
+        require_once('./module/'.STANDARD_BACKEND_MODULE_FOLDER.'/'.$module.'/'.$module.'Controller.php');
+
+}else{
+    $module = "fancy";
+    
+    // Startup
+    require_once('./system/startup.php');	
+
+    // Get the required controller
+    $controllerName = $module.'Controller';
+    //echo './module/'.STANDARD_FRONTEND_MODULE_FOLDER.'/'.$module.'/'.$module.'Controller.php';
+    require_once('./module/'.STANDARD_FRONTEND_MODULE_FOLDER.'/'.$module.'/'.$module.'Controller.php');
 }
 
-// Startup
-require_once('./system/startup.php');	
 
-// Get the required controller
-$controllerName = $module.'Controller';
-//echo './module/'.STANDARD_BACKEND_MODULE_FOLDER.'/'.$module.'/'.$module.'Controller.php';
-require_once('./module/'.STANDARD_BACKEND_MODULE_FOLDER.'/'.$module.'/'.$module.'Controller.php');
+
 $obj = new $controllerName();
 
 // Check if action's method exists or default back to index

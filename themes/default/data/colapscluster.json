@@ -1,0 +1,44 @@
+{
+ "name": "Root",
+ "children": [
+  {
+   "name": "First Child",
+   "children": [
+    {
+     "name": "first cluster",
+     "children": [
+      {"name": "AgglomerativeCluster", "size": 1000,"children":[
+              {"name": "AgglomerativeChild", "size": 1000},
+              {"name": "AgglomerativeChild", "size": 1000},
+              {"name": "AgglomerativeChild", "size": 1000},
+              {"name": "AgglomerativeChild", "size": 1000}
+              ]
+      },
+      {"name": "AgglomerativeCluster", "size": 3938},
+      {"name": "AgglomerativeCluster", "size": 3938},
+      {"name": "AgglomerativeCluster", "size": 3938},
+      {"name": "AgglomerativeCluster", "size": 3938},
+      {"name": "AgglomerativeCluster", "size": 3938}
+
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Second Child",
+   "children": [
+    {
+     "name": "second cluster",
+     "children": [
+      {"name": "AgglomerativeCluster", "size": 3938},
+      {"name": "AgglomerativeCluster", "size": 3938},
+      {"name": "AgglomerativeCluster", "size": 3938},
+      {"name": "AgglomerativeCluster", "size": 3938},
+      {"name": "AgglomerativeCluster", "size": 3938},
+      {"name": "AgglomerativeCluster", "size": 3938}
+     ]
+    }
+   ]
+  }
+ ]
+}

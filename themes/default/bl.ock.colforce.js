@@ -46,8 +46,8 @@ node.append("svg:circle")
          .style("fill","white");
 
 node.append("svg:title")
-         //.text(function(d) { return (d.name+": "+d.company.toString().replace(new RegExp(",","g"),", ")); });
-         .text(function(d) { return (d.name;)); });
+         .text(function(d) { return (d.name+": "+d.company.toString().replace(new RegExp(",","g"),", ")); });
+         //.text(function(d) { return (d.name;)); });
 
 node.append("svg:text")
 .attr("class", "nodetext")
