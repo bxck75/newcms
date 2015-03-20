@@ -10,7 +10,7 @@
  *
  * @author Boudewijnwerk
  */
-class fancyModel extends Model{
+class fancymodel {
     //put your code here
 }
 
