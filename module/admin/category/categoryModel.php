@@ -8,6 +8,17 @@ class categoryModel extends Model{
   
             return $result->rows;
     }
+    public function _getcategorys(){
+            //$sql = "SELECT * FROM Category";
+            $r = mysql_query("SELECT * FROM Category ");
+            $data = array();
+            while($row = mysql_fetch_assoc($r)) {
+                $data[] = $row;
+            } 
+            //$result = $this->db->query($sql);
+  
+            return $data;
+    }
     
     
             
@@ -24,12 +35,13 @@ class categoryModel extends Model{
     }
 
     public function addcategory($data){
-            var_dump($data);
+            //var_dump($data);
             $parent_category = $data['req_parent_category'];
             $sql  = "INSERT INTO Category SET ";
             $sql .= "category_name = '".$this->db->escape($data['req_name'])."', ";
-            $sql .= "category_text = '".$data['req_text']."', ";
+            $sql .= "category_text = '".$this->db->escape($data['req_text'])."', ";
             $sql .= "parent_id = '".$parent_category."' ;";
+            echo $sql;
             $this->db->query($sql);
 //            unset($sql);
 //            $data['id_Cat'] = $this->db->getLastId();
@@ -49,18 +61,18 @@ class categoryModel extends Model{
                     $parent_category = $data['req_parent_category'];
                     $sql  = "UPDATE Category SET ";
                     $sql .= "category_name = '".$this->db->escape($data['req_name'])."', ";
-                    $sql .= "category_text = '".$data['req_text']."' ";
+                    $sql .= "category_text = '".$this->db->escape($data['req_text'])."' ";
                     $sql .= "WHERE category_id = '".$data['id']."'";
                     //echo $sql;
                     $this->db->query($sql);
-                    unset($sql);
-                    //echo "<pre>";var_dump($data);echo "</pre>";
-                    $data['id_Cat'] = $this->db->getLastId();
-                    $sql  = "UPDATE Category_tree SET ";
-                    $sql .= "parent_category_id = '".$parent_category."' ";
-                    $sql .= "WHERE category_id = '".$data['id']."' ";
-                    $sql .= "AND branch_in = '".$data['branch_in']."'; ";
-                    $this->db->query($sql);
+//                    unset($sql);
+//                    //echo "<pre>";var_dump($data);echo "</pre>";
+//                    $data['id_Cat'] = $this->db->getLastId();
+//                    $sql  = "UPDATE Category_tree SET ";
+//                    $sql .= "parent_category_id = '".$parent_category."' ";
+//                    $sql .= "WHERE category_id = '".$data['id']."' ";
+//                    $sql .= "AND branch_in = '".$data['branch_in']."'; ";
+//                    $this->db->query($sql);
                     //echo $sql;
                     //echo "<pre>";var_dump($data);echo "</pre>";
 
@@ -72,23 +84,6 @@ class categoryModel extends Model{
             return;
     }
 
-    public function getTreetrunk(){
-
-        $sql = "SELECT * FROM Category_tree ";
-
-        $result = $this->db->query($sql);
-
-        return $result->rows;
-    }
-    public function getbranchbyid($id){
-
-        $sql = "SELECT * FROM Category_tree WHERE category_id = '".$id."'; ";
-
-        $result = $this->db->query($sql);
-
-        return $result->rows;
-    }
-
     public function getChildwithParent($parent_id){
 
         $sql = "SELECT * "
@@ -98,15 +93,6 @@ class categoryModel extends Model{
         $result = $this->db->query($sql);
 
         return $result->rows;
-    }
-
-    public function getParentwithChild($child_id){
-
-        $sql = "SELECT * FROM Category_tree WHERE category_id = ".$child_id;
-
-        $result = $this->db->query($sql);
-
-        return $result->row;
     }
 
     public function getcategory($id){

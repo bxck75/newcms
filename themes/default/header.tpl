@@ -29,10 +29,10 @@
     		<li class="folder"><?php echo $this->menu_categorys; ?>
 			    <ul>
     				<?php if($this->IsAuthorized($_GET['token'],'category', 'view')){?>
-    				<li><a href="index.php?route=category/overview&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_view_category; ?></a></li>
+    				<li><a target="_parent" href="index.php?route=category/overview&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_view_category; ?></a></li>
     				<?php } ?>
     				<?php if($this->IsAuthorized($_GET['token'],'category', 'add')){?>
-    				<li><a href="index.php?route=category/add&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_add_category; ?></a></li>
+    				<li><a target="_parent" href="index.php?route=category/add&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_add_category; ?></a></li>
     				<?php } ?>
 			    </ul>
 			</li>
@@ -41,10 +41,10 @@
     		<li class="folder"><?php echo $this->menu_products; ?>
 			    <ul>
     				<?php if($this->IsAuthorized($_GET['token'],'product', 'view')){?>
-    				<li><a href="index.php?route=product/overview&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_view_product; ?></a></li>
+    				<li><a target="_parent" href="index.php?route=product/overview&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_view_product; ?></a></li>
     				<?php } ?>
     				<?php if($this->IsAuthorized($_GET['token'],'product', 'add')){?>
-    				<li><a href="index.php?route=product/add&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_add_product; ?></a></li>
+    				<li><a target="_parent" href="index.php?route=product/add&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_add_product; ?></a></li>
     				<?php } ?>
 			    </ul>
 			</li>
@@ -52,64 +52,73 @@
                 <li class="folder"><?php echo $this->menu_fancy; ?>
                     <ul>
                         <?php if($this->IsAuthorized($_GET['token'],'fancy', 'html5')){?>
-                        <li class="file"><a href="index.php?route=fancy/vectorjs&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_fancy_vectorjs; ?></a></li>
+                        <li class="file"><a target="_parent" href="index.php?route=fancy/vectorjs&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_fancy_vectorjs; ?></a></li>
                         <?php } ?>
                         <?php if($this->IsAuthorized($_GET['token'],'fancy', 'html5')){?>
-                        <li class="file"><a href="index.php?route=fancy/html5&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_fancy_html5; ?></a></li>
+                        <li class="file"><a target="_parent" href="index.php?route=fancy/html5&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_fancy_html5; ?></a></li>
                         <?php } ?>
                     </ul>
                 <li class="folder"><?php echo $this->menu_usermanagement; ?>
                         <ul>
                         <?php if($this->IsAuthorized($_GET['token'],'user', 'view')){?>
-                        <li class="file"><a href="index.php?route=user/overview&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_manage_users; ?></a></li>
+                        <li class="file"><a target="_parent" href="index.php?route=user/overview&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_manage_users; ?></a></li>
                         <?php } ?>
                         <?php if($this->IsAuthorized($_GET['token'],'user', 'edit')){?>
-                        <li class="file"><a href="index.php?route=user/group&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_manage_groups; ?></a></li>
+                        <li class="file"><a target="_parent" href="index.php?route=user/group&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_manage_groups; ?></a></li>
                         <?php } ?>
                         <?php if($this->IsAuthorized($_GET['token'],'user', 'add')){?>
-                        <li class="file"><a href="index.php?route=user/add&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_add_user; ?></a></li>
+                        <li class="file"><a target="_parent" href="index.php?route=user/add&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_add_user; ?></a></li>
                         <?php } ?>
                         <?php if($this->IsAuthorized($_GET['token'],'login', 'logout')){?>
-                        <li class="file"><a href="index.php?route=login/logout&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_logout; ?></a></li>
+                        <li class="file"><a target="_parent" href="index.php?route=login/logout&token=<?php echo $_GET['token']; ?>"><?php echo $this->menu_logout; ?></a></li>
                         <?php } ?>
                         </ul>
-                <!--<li id="videoParent1" class="folder">Video
-                        <ul>
-                            <li id="videoNode1" data-icon="false">
-                                <span>
-                                    <video target="_parent" id="video1" src="http://simpl.info/video/video/chrome.mp4" controls="controls">
-                                      Your browser does not support the <code>video</code> element.
-                                    </video>
-                                </span>
-                        </ul>-->
-                <li class="folder"><?php echo $this->menu_catalog; ?>
+             <!--   <li class="folder"><?php echo $this->menu_catalog; ?>
                      <ul> 
-                <?php $root_id = 1;?>       
+                <?php $root_id = 0;?> 
+                <?php echo "<pre>";var_dump($this->children);echo"</pre>"; ?>
                 <?php foreach($this->children[$root_id] as $child){ ?>
                         
-
+                        <?php foreach($this->children['']['cat_prod'][$child["category_id"]] as $product){ ?>
+                            <!--<ul><li href="#"  ><span><?php echo $product["name"]; ?></span></ul>-->
+                        <?php } ?>
+                        <?php if($child["category_name"] != ''){ ?>
                         <li class="folder"><span><?php echo $child["category_name"]; ?> || <?php echo $child["category_text"]; ?>|| <?php echo $child["category_id"]; ?></span>
-                        
+                        <?php } ?>
                         
                         <?php if(is_array($this->children[$child['category_id']])){ ?>
                         
+                         <?php //de klote shit...met die fucking nested array werkt gewoon niet....de ?>
                          <ul>
                             <?php foreach($this->children[$child['category_id']] as $grandchild){ ?>
                                     
-
-                                <li class="folder"><span><?php echo $grandchild["category_name"]; ?> || <?php echo $grandchild["category_text"]; ?></span>
                                 
-                                    <ul><li href="www.google.nl"  ><span><?php echo $grandchild["category_name"]; ?> || <?php echo $grandchild["category_text"]; ?></span></ul>
+                                <li class="folder"><span><?php echo $grandchild["category_name"]; ?> || <?php echo $grandchild["category_text"]; ?></span>
+                                    
+                                    <?php //echo "<pre>";var_dump($this->children['']);echo"</pre>"; ?>
+                                    <ul>
+                                    <?php foreach($this->children['']['cat_prod'][$grandchild["category_id"]] as $product){ ?>
+                                        <li><a target="_parent" href="index.php?route=product/edit&token=<?php echo $_GET['token']; ?>&id=<?php echo $product['product_id']; ?>" ><span><?php echo $product["name"]; ?></span></a>
+                                    
+                                     <?php } ?>
+                                     </ul>
                                     
                                     
-                             <?php } ?>   
+                                    
+                                    
+                                    <?php //echo "<pre>";var_dump($this->children['']['cat_prod'][$grandchild["category_id"]]);echo"</pre>"; ?>
+                                    
+                                    
+                                    
+                                    
+                             <?php } ?>  
                                
                         <?php } ?>
                         </ul>
                         <?php } ?>
 
                     </ul>                 
-                 <?php } //die();?>   
+                 <?php } ?>   -->
             </ul>
         </div>
     

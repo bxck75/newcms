@@ -8,6 +8,8 @@ class Controller{
 	public $styles = array();
 	public $language = '';
 	public $catalogus = '';
+	public $list = array();
+	public $products = array();
 
 	public function __construct(){
 		$this->language = new language;
@@ -203,6 +205,7 @@ class Controller{
             $this->menu_logout = $this->language->get('menu_logout');		
             $this->text_userlogin = $this->language->get('text_userlogin');	
             $this->menu_fancy = $this->language->get('menu_fancy');	
+            $this->menu_catalog = $this->language->get('menu_catalog');	
             $this->menu_fancy_html5 = $this->language->get('menu_fancy_html5');	
             $this->menu_fancy_vectorjs = $this->language->get('menu_fancy_vectorjs');	
             $this->menu_products = $this->language->get('menu_products');	
@@ -211,36 +214,102 @@ class Controller{
 	
     	 
 	}
-        
+        public function HaalCatalogus(){
+            $this->loadModel('category');
+            
+            $this->catalogus = $this->model->getcategorys();
+            
+            echo "<pre>";
+                var_dump($this->catalogus);
+                var_dump(self::buildtree($this->catalogus));
+            echo "</pre>";
+            
+            //$list = $this->fetch_recursive($this->catalogus, 1);
 
+        }
+        
+        public function buildtree($src_arr, $parent_id = 1, $tree = array())
+        {
+            foreach($src_arr as $idx => $row)
+            {
+                if($row['parent_id'] == $parent_id)
+                {
+                    foreach($row as $k => $v)
+                        $tree[$row['id']][$k] = $v;
+                    unset($src_arr[$idx]);
+                    $tree[$row['id']]['children'] = buildtree($src_arr, $row['id']);
+                }
+            }
+            ksort($tree);
+            return $tree;
+        }
+        
+        public function fetch_recursive($src_arr, $currentid, $parentfound = false, $cats = array()){
+            foreach($src_arr as $row)
+            {
+                if((!$parentfound && $row['category_id'] == $currentid) || $row['parent_id'] == $currentid)
+                {
+                    $rowdata = array();
+                    foreach($row as $k => $v)
+                        $rowdata[$k] = $v;
+                    $cats[] = $rowdata;
+                    if($row['parent_id'] == $currentid)
+                        $cats = array_merge($cats, fetch_recursive($src_arr, $row['category_id'], true));
+                }
+            }
+            return $cats;
+        }
             
         
-        public function HaalCatalogus(){
+        public function _HaalCatalogus(){
             
             $this->loadModel('category');
             
             $this->catalogus = $this->model->getcategorys();
             
-                $categoryArr = Array();
-                
+                //root
                 foreach($this->catalogus as $categoryRow){
-                    //echo $categoryRow['parent_id'];
-                    $this->children[$categoryRow['parent_id']] = $this->model->getChildwithParent($categoryRow['parent_id']);
-                    foreach( $this->children[$categoryRow['parent_id']] as $categorychildRow){
-               
-                        $this->children[$categoryRow['parent_id'][$categorychildRow['parent_id']]] = $this->model->getChildwithParent($categorychildRow['parent_id']);
-                    
-                    }
+
+                    //if($categoryRow['category_id'] > 0){
+                        
+                        $this->cat_products[$categoryRow['category_id']] = self::HaalProducten($categoryRow['category_id']);
+
+                        $this->children[$categoryRow['parent_id']] = $this->model->getChildwithParent($categoryRow['parent_id']);
+                        
+                        //child of root
+                        foreach( $this->children[$categoryRow['parent_id']] as $categorychildRow){
+                            
+                            $this->cat_products[$categorychildRow['category_id']] = self::HaalProducten($categorychildRow['category_id']);
+                            
+                            $this->children[$categoryRow['parent_id'][$categorychildRow['parent_id']]] = $this->model->getChildwithParent($categorychildRow['parent_id']);
+                            
+                            //grandchild of root
+//                            foreach( $this->children[$categoryRow['parent_id'][$categorychildRow['parent_id']]] as $categorygrandchildRow){
+//                            
+//                                $this->cat_products[$categorygrandchildRow['category_id']] = self::HaalProducten($categorygrandchildRow['category_id']);
+//                            
+//                                $this->children[$categoryRow['parent_id'][$categorychildRow['parent_id']][$categorygrandchildRow['parent_id']]] = $this->model->getChildwithParent($categorygrandchildRow['parent_id']);
+//                                echo "<pre>";
+//                               print_r($this->children[$categoryRow['parent_id'][$categorychildRow['parent_id']][$categorygrandchildRow['parent_id']]][0]);
+//                                echo "</pre>";
+//                            }
+                            
+                        }
+                        
+                        $this->children[$categoryRow['parent_id'][$categorychildRow['parent_id']]]['cat_prod'] = $this->cat_products;
+                        
+                    //}
                 }
 
                 return $this->children;
                 
         }
-        public function HaalProducten(){
+        
+        private function HaalProducten($category_id){
             
-            $this->loadModel('products');
-            
-            $this->products = $this->model->getproducts();
+            //$this->loadModel('product');
+            $result = $this->model->getproductbycat($category_id);
+            return $result;
             
         }
 

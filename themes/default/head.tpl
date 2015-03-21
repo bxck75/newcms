@@ -27,8 +27,8 @@
 
         <link rel='stylesheet' href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-        <script src="./themes/default/javascript/spritely/src/jquery.spritely.js"></script>
 
+        <script src="./themes/default/javascript/lite-uploader-master/jquery.liteuploader.min.jsz"></script>        
         
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -145,7 +145,7 @@ $(function(){
 			return false;
 		});
                 $("#tree").fancytree("getRootNode").visit(function(node){
-                    node.setExpanded(true);
+                    node.setExpanded(false);
                 });
 
 	});

@@ -14,4 +14,14 @@ class Model{
 	
 	    return $result->row['text'];
 	}
+        public function getproductbycat($category_id){
+            
+            $sql = "SELECT  *  FROM Product WHERE category_id = '".$this->db->escape($category_id)."'";
+            
+            $result = $this->db->query($sql);
+//            $row = $result->row;
+//            var_dump($row);
+
+            return $result->rows;
+    }
 }

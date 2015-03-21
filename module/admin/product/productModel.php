@@ -9,6 +9,17 @@ class productModel extends Model{
             return $result->rows;
     }
     
+    public function getproduct($id){
+            $sql = "SELECT  *  FROM Product WHERE product_id = '".$this->db->escape($id)."'";
+
+            $result = $this->db->query($sql);
+            //$row = $result->row;
+            //var_dump($row);
+
+            return $result->row;
+    }
+    
+    
     
             
 
@@ -16,8 +27,7 @@ class productModel extends Model{
             if($id != 1){ //root can not be removed
                 $sql = "DELETE FROM Product WHERE product_id = '".$this->db->escape($id)."'";		
                 $this->db->query($sql);
-                $sql = "DELETE FROM Product_tree WHERE product_id = '".$this->db->escape($id)."'";		
-                $this->db->query($sql);
+                
 
                 return;
             }
@@ -61,23 +71,6 @@ class productModel extends Model{
         return $result->rows;    
     }
 
-    public function getTreetrunk(){
-
-        $sql = "SELECT * FROM Product_tree ";
-
-        $result = $this->db->query($sql);
-
-        return $result->rows;
-    }
-    public function getbranchbyid($id){
-
-        $sql = "SELECT * FROM Product_tree WHERE product_id = '".$id."'; ";
-
-        $result = $this->db->query($sql);
-
-        return $result->rows;
-    }
-
     public function getChildwithParent($parent_id){
 
         $sql = "SELECT * "
@@ -88,27 +81,6 @@ class productModel extends Model{
 
         return $result->rows;
     }
-
-    public function getParentwithChild($child_id){
-
-        $sql = "SELECT * FROM Product_tree WHERE product_id = ".$child_id;
-
-        $result = $this->db->query($sql);
-
-        return $result->row;
-    }
-
-    public function getproduct($id){
-            $sql = "SELECT  *  FROM Product WHERE product_id = '".$this->db->escape($id)."'";
-
-            $result = $this->db->query($sql);
-            //$row = $result->row;
-            //var_dump($row);
-
-            return $result->row;
-    }
-
-
 
     private function validateproduct($data){
             foreach($data as $k => $v){

@@ -16,7 +16,11 @@
                         <select class="element select medium" id="element_1" name="parent_category"> 
                             <?php foreach($this->parent_category_data as $parent_cat) { ?>
                                 <?php if($parent_cat['category_name'] != ''){ ?>
-                                    <?php if($this->parent_category_data['category_id'] != $parent_cat['category_id']) { ?>
+                                        <?php echo $parent_cat['product_id']; ?>
+                                        <?php //echo $_GET['id']; ?>
+                                        <?php //echo "<pre>";var_dump($this->parent_category_data);echo"</pre>"; ?>
+                                        <?php echo "<pre>";var_dump($this->product);echo"</pre>"; ?>
+                                    <?php if($this->product[category_id] == $parent_cat['category_id']) { ?>
                                         <option value="<?php echo $parent_cat['category_id']; ?>" selected='selected' ><?php echo $parent_cat['category_name']; ?></option>
                                    <?php  }else{ ?>
                                         <option value="<?php echo $parent_cat['category_id']; ?>" ><?php echo $parent_cat['category_name']; ?></option>        
@@ -32,19 +36,28 @@
 		</tr>
 		<tr><td colspan="2"><input type="button" onclick="validate();" name="btnSubmit" value="Opslaan" /></td></tr>
 		<tr><td colspan="2"><input type="button" name="btnBack" value="Annuleren" onclick="document.location.href='index.php?route=product/overview&token=<?php echo $_GET['token']; ?>'" /></td></tr>
-               <?php //var_dump($this->product_branch_id); ?>
-                
-                <input type="hidden"  name="branch_in" value="<?php echo $this->product_branch_id[0]['branch_in']; ?>" />
+                <tr>
+                    <input type="file" name="fileUpload" id="fileUpload" class="fileUpload" />
+
+                </tr>
         
         </table>
 	</form>
 </div>
+<?php if(file_exist('./themes/default/uploads/basic.php'){echo "yeselse{echo "No!";} ?>
 <script>
     
 	$(document).ready(function(){
+                var int ID = <?php echo $_GET["id"]; ?>;
 		$('input[name^="req"]').each(function(){
 			$(this).after('<span>*</span>');
-		});
+		})
+                $('.fileUpload').liteUploader({
+				script: './themes/default/uploads/basic.php';
+			})
+			.on('lu:success', function (e, response) {
+				alert('Uploaded!');
+			});
                 
 	});
 	
